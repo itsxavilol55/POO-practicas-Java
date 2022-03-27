@@ -1,0 +1,20 @@
+package uno;
+public class vacaOrd extends vaca
+{
+	public vacaOrd() 
+	{
+		super();
+	}
+	public boolean ordeñar(int hora)
+	{
+		if(hora == 6 && getUltimaHora() == 0)
+			return super.ordeñar(hora);
+		if(!isTieneCrias())
+			if(hora - getUltimaHora() < 2 || hora > 20)
+				return false;
+		if(hora - getUltimaHora() < 3 || hora > 20)
+			return false;
+		setLitrosTotalesDia(getLitrosTotalesDia() + ((float) (Math.random() * 11) + 20));
+		return true;
+	}
+}
